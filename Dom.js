@@ -1,127 +1,68 @@
-//GETELEMENTBYID
+var form=document.getElementById('addForm');
+var itemList=document.getElementById('items');
 
-var HeaderTitle=document.getElementById('header-title');
+//Add event to submit
+form.addEventListener('submit',addItem);
 
- HeaderTitle.textContent='Item Display';
- HeaderTitle.innerText="Item Lister";
- HeaderTitle.style.color="white";
- HeaderTitle.style.fontFamily='segoe ui';
+function addItem(e){
+    
+    e.preventDefault();
 
+    // Get input Value
+    var newItem=document.getElementById('item').value;
+    
+    //create li element
+    var li=document.createElement('li');
 
- var Border=document.getElementById('main-header');
- Border.style.borderBottom='solid 5px black';
+    //Add class to li
+    li.className='list-group-item';
 
-//  //GETELEMENTBYCLASSNAME
+    //Add textnode to li
+    li.appendChild(document.createTextNode(newItem));
 
-var FormTitle=document.getElementsByClassName('from-title');
+    
+    
+    //create delbutton element
+    var delButton=document.createElement('button');
 
-  FormTitle[0].style.fontWeight='bold';
-  FormTitle[0].style.color='green';
+    //adding class to delButton
+    delButton.className='btn btn-danger btn-sm float-right delete';
 
+    //Add textnode to delButton
+    delButton.appendChild(document.createTextNode('X'));
 
-var Items=document.getElementsByClassName('list-group-item');
- console.log(Items);
- Items[2].style.backgroundColor='lightgreen';
-
-
- for( var i=0;i<Items.length;i++)
-  {
-      Items[i].style.fontWeight='bold';
-  }
-
-// GETELEMENTSBYTAGNAME
-
-   var li=document.getElementsByTagName('li');
-   console.log(li);
-   li[1].style.fontWeight='bold';
-
-    for(var i=0;i<li.length;i++)
-     {
-         li[i].style.color='red'
-     }
-
-//QUERYSELECTOR
-
-      //Using Classname for nth child
-     var lastelem=document.querySelector('.list-group-item:nth-child(2)') 
-     lastelem.style.backgroundColor=" lightgreen";
-
-    var lastelem=document.querySelector('.list-group-item:nth-child(3)') 
-    lastelem.style.display=" none"; 
-
- var itemlist=document.querySelector('#items');
-
-// firstChild
-console.log(itemlist.firstChild);
-
-//FirstElement Child
-console.log(itemlist.firstElementChild);
-
-//lastChild
-console.log(itemlist.lastChild);
-
-//LastElement Child
-console.log(itemlist.lastElementChild);
-
-//nextSibling
-console.log(itemlist.nextSibling);
-
-//nextElementSibling
-console.log(itemlist.nextElementSibling);
-
-//previousSibling
-console.log(itemlist.previousSibling);
-
-//previousElementSibling
-console.log(itemlist.previousElementSibling);
-
-//Create Element
-var newDiv=document.createElement('div');
-
-//adding classname 
-newDiv.className='hello';
-
-//adding id
-newDiv.id='hello 1';
-
-//adding attribute
-newDiv.setAttribute('title','Hello Div');
-
-//creating text node
-var newDivText=document.createTextNode('Hello');
-console.log(newDiv);
-
-//add text to Div
-newDiv.appendChild(newDivText);
+    //Append delButton to li
+    li.appendChild(delButton);
 
 
-//to insert new element from script to html
+    //create edit Button
+    var editButton=document.createElement('button');
 
-    //to insert newDiv before item lister
-var container=document.querySelector('header .container');
+    //adding class to editButton
+    editButton.className='btn  btn-sm float-right edit'
 
-var h1= document.querySelector('header h1');
+    // Add textnode to editButtton
+    editButton.appendChild(document.createTextNode('EDIT'));
 
-container.insertBefore(newDiv,h1);
+    //Append editButton to li
+    li.appendChild(editButton);
 
+    itemList.appendChild(li);
+}
 
+//Add event to remove item
+itemList.addEventListener('click',removeItem);
 
-  //to insert newli hello world before first item 
+function removeItem(e){
+    if(e.target.classList.contains('delete')){
+        
+        if((confirm('Are you Sure ?'))){
 
-//Create Element
-var newli=document.createElement('li');
+            var li=e.target.parentElement;
+            itemList.removeChild(li);
+            console.log(classList);
+            
 
-//adding classname
-newli.className='list-group-item';
-
-//creating textnode
-var newliText=document.createTextNode('HELLO');
-
-//adding text to Div
-newli.appendChild(newliText);
-
-var item=document.querySelector('.list-group');
-
-var li=item.children[0];
-
-item.insertBefore(newli,li);
+        }
+    }
+}
