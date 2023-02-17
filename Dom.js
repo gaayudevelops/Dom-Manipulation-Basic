@@ -20,6 +20,12 @@ function addItem(e){
     //Add textnode to li
     li.appendChild(document.createTextNode(newItem));
 
+    //Get input description
+     var newDesc=" "+document.getElementById('itemdesc').value;
+
+    //add textnode of description to li
+     li.appendChild(document.createTextNode(newDesc));
+
     
     
     //create delbutton element
@@ -66,3 +72,59 @@ function removeItem(e){
         }
     }
 }
+//Adding placeholder to items
+var itembox=document.getElementById('item');
+itembox.placeholder='Add item name';
+
+//create description box 
+var descBox=document.createElement('input');
+
+//adding class to descBox
+descBox.className='form-control mr-2';
+
+//add id
+descBox.id='itemdesc';
+
+//add placeholder
+descBox.placeholder='Add description';
+
+//get parentelement of descbox
+var form1=document.querySelector('#addForm');
+
+//get sibling element of descBox
+var submit=document.querySelector('#submit');
+
+//insert descBox just before sibling element in the parentnode
+form1.insertBefore(descBox,submit);
+
+// Filtering objects
+var filter=document.getElementById('filter');
+
+// Filter Event
+filter.addEventListener('keyup',filterItems);
+
+function filterItems(e){
+
+    //convert text to lowercase
+    var text=e.target.value.toLowerCase();
+
+    //get lis
+    var items=document.getElementsByTagName('li');
+
+    //convert to array
+    Array.from(items).forEach(function (item){
+       var itemName=item.childNodes[0].textContent + item.childNodes[1].textContent;
+       console.log(itemName);
+        if(itemName.toLowerCase().indexOf(text)!=-1){
+        
+            item.style.display='block';
+        }
+        
+        else{
+                item.style.display='none';
+            }
+    })
+
+}
+
+
