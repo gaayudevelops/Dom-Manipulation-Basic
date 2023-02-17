@@ -39,3 +39,12 @@ var Items=document.getElementsByClassName('list-group-item');
      {
          li[i].style.color='red'
      }
+
+//QUERYSELECTOR
+
+      //Using Classname for nth child
+     var lastelem=document.querySelector('.list-group-item:nth-child(2)') 
+     lastelem.style.backgroundColor=" lightgreen";
+
+    var lastelem=document.querySelector('.list-group-item:nth-child(3)') 
+    lastelem.style.display=" none"; 
