@@ -10,7 +10,8 @@ function setToLocalStorage(e){
     var email=e.target.useremail.value;
     var mobno=e.target.userphonno.value;
 
-    localStorage.setItem('Name',name);
-    localStorage.setItem('Email',email);
-    localStorage.setItem('Mob No.',mobno);
+    const obj={ name,email,mobno};
+    
+
+    localStorage.setItem("obj",JSON.stringify(obj));
 }
