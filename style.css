@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family:'Segoe UI';
+    
+  }
+  
+  body {
+    background: url("./bg.jpg");
+    background-size: cover;
+     background-repeat: no-repeat;
+     color:black;
+     background-attachment: fixed;
+     background-position: center;
+   
+    
+  }
+
+
+.details{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width: 400px;
+ 
+}
+
+
+.details h1 {
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 40px 0;
+  font-weight: bold;
+  color:rgb(245, 245, 245);
+  background-color: rgba(88, 88, 88, 0.425);
+  padding: 15px 10px;
+  width:100%;
+  border-radius: 5px;
+
+}
+
+.details label {
+  font-size: 20px;
+  margin:10px 0;
+  
+}
+
+.details input {
+  font-size: 16px;
+  padding: 15px 10px;
+  width:100%;
+  border: 0;
+  border-radius: 5px;
+  outline:none;
+  
+}
+
+ /* .details ul{
+    
+ 
+ margin:15px 0;
+  width: 400px;
+  padding: 10px;
+  box-sizing: border-box;
+ 
+  background-color: rgba(119, 115, 115, 0.425);
+  
+    
+  
+} 
+
+.details ul li{
+    display: flex;
+    margin: 5px 0;
+    padding: 20px 20px;
+    background-color: rgb(245, 245, 245);
+  
+   
+} */
+
+.btn1 {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  border: 0;
+  background: #333;
+  color: #fff;
+  border-radius: 5px;
+  margin: 25px 0;
+}
+
+
+  
+
+  
+   /* .container {
+    margin: auto;
+    width: 600px;
+    overflow: auto;
+    padding: 3rem 2rem;
+  }   */
