@@ -13,5 +13,5 @@ function setToLocalStorage(e){
     const obj={ name,email,mobno};
     
 
-    localStorage.setItem("obj",JSON.stringify(obj));
+    localStorage.setItem(email,JSON.stringify(obj));
 }
